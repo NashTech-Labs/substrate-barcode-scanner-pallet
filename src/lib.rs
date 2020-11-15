@@ -61,13 +61,19 @@ decl_module! {
         fn deposit_event() = default;
 
         #[weight = 10_000]
-        fn add_product(origin, barcode: T::Hash, product: Product<T::AccountId, T::Hash>) -> DispatchResult {
+        fn add_product(origin, barcode: T::Hash, name: Vec<u8>, id: T::Hash) -> DispatchResult {
 
             // The dispatch origin of this call must be `ManufactureOrigin`.
             let sender = T::ManufactureOrigin::ensure_origin(origin)?;
 
             // Verify whether barcode has been created
             ensure!(!ProductInformation::<T>::contains_key(&barcode), Error::<T>::BarcodeAlreadyExists);
+
+            let product = Product {
+                id,
+                name,
+                manufacturer: sender.clone(),
+            };
 
             ProductInformation::<T>::insert(&barcode, product);
 

@@ -11,17 +11,12 @@ fn check_product_storage() {
         let barcode = create_hash_data(&1u32);
         let id = create_hash_data(&2u32);
         let owner: u64 = 6;
-        let product = Product {
-            id,
-            name: "TEST".encode(),
-            manufacturer: owner,
-        };
         assert_ok!(TemplateModule::add_product(
             Origin::signed(owner),
             barcode.clone(),
-            product.clone()
+            "TEST".encode(),
+            id
         ));
-        assert_eq!(TemplateModule::product_information(barcode), product);
     });
 }
 
