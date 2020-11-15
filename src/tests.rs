@@ -13,7 +13,6 @@ fn check_product_storage() {
         let owner: u64 = 6;
         let product = Product {
             id,
-            name: "TEST".to_string(),
             manufacturer: owner,
         };
         assert_ok!(TemplateModule::add_product(
@@ -48,7 +47,6 @@ fn create_test_product() -> Product<
     let owner: u64 = 6;
     Product {
         id,
-        name: "TEST".to_string(),
         manufacturer: owner,
     }
 }

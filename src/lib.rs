@@ -21,7 +21,6 @@ pub trait Trait: frame_system::Trait {
 #[derive(Encode, Decode, Clone, Default, Eq, PartialEq, Debug)]
 pub struct Product<AccountId, Hash> {
     id: Hash,
-    name: String,
     manufacturer: AccountId,
 }
 
