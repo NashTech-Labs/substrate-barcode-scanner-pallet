@@ -41,6 +41,7 @@ decl_event!(
         Hash = <T as frame_system::Trait>::Hash,
         AccountId = <T as frame_system::Trait>::AccountId,
     {
+        /// Product information has been shored.
         ProductInformationStored(AccountId, Hash),
     }
 );
