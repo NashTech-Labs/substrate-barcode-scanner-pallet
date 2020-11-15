@@ -4,7 +4,7 @@ use codec::{Decode, Encode};
 use frame_support::{
     decl_error, decl_event, decl_module, decl_storage, ensure, traits::EnsureOrigin,
 };
-use sp_runtime::{DispatchResult, RuntimeDebug};
+use sp_runtime::DispatchResult;
 
 #[cfg(test)]
 mod mock;
@@ -18,7 +18,7 @@ pub trait Trait: frame_system::Trait {
     type ManufactureOrigin: EnsureOrigin<Self::Origin, Success = Self::AccountId>;
 }
 
-#[derive(Encode, Decode, Clone, Default, Eq, PartialEq, RuntimeDebug)]
+#[derive(Encode, Decode, Clone, Default, Eq, PartialEq, Debug)]
 pub struct Product<AccountId, Hash> {
     id: Hash,
     name: String,
