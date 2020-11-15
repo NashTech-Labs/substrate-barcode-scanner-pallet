@@ -5,6 +5,7 @@ use frame_support::{
     decl_error, decl_event, decl_module, decl_storage, ensure, traits::EnsureOrigin,
 };
 use sp_runtime::DispatchResult;
+use sp_std::vec::Vec;
 
 #[cfg(test)]
 mod mock;
