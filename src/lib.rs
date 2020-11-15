@@ -4,7 +4,7 @@ use codec::{Decode, Encode};
 use frame_support::{
     decl_error, decl_event, decl_module, decl_storage, ensure, traits::EnsureOrigin,
 };
-use sp_runtime::DispatchResult;
+use sp_runtime::{DispatchResult, RuntimeDebug};
 
 #[cfg(test)]
 mod mock;
@@ -18,18 +18,19 @@ pub trait Trait: frame_system::Trait {
     type ManufactureOrigin: EnsureOrigin<Self::Origin, Success = Self::AccountId>;
 }
 
-#[cfg_attr(feature = "std", derive(Debug))]
-#[derive(Encode, Decode, Default, Clone, PartialEq)]
+#[derive(Encode, Decode, Clone, Default, Eq, PartialEq, RuntimeDebug)]
 pub struct Product<AccountId, Hash> {
     id: Hash,
     name: String,
     manufacturer: AccountId,
 }
 
+pub type ProductOf<T> = Product<<T as frame_system::Trait>::AccountId, <T as frame_system::Trait>::Hash>;
+
 decl_storage! {
     trait Store for Module<T: Trait> as SubstrateBarcodeScanner {
         ProductInformation get(fn product_information): map hasher(blake2_128_concat) T::Hash =>
-        Product<T::AccountId, T::Hash>;
+        ProductOf<T>;
     }
 }
 
