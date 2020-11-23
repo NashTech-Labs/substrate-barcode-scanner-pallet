@@ -4,6 +4,6 @@
 
 sp_api::decl_runtime_apis! {
     pub trait VerifyBarcodeApi {
-        fn is_valid_barcode(barcode: T::Hash) -> boo;
+        fn is_valid_barcode(barcode: T::Hash) -> bool;
     }
 }
