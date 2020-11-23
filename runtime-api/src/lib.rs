@@ -3,7 +3,8 @@
 #![allow(clippy::unnecessary_mut_passed)]
 
 sp_api::decl_runtime_apis! {
-    pub trait VerifyBarcodeApi {
-        fn is_valid_barcode(barcode: T::Hash) -> bool;
+    pub trait VerifyBarcodeApi<Hash> where
+		Hash: codec::Codec, {
+        fn is_valid_barcode(barcode: Hash) -> bool;
     }
 }
