@@ -1,6 +1,6 @@
 [package]
 name = "substrate-barcode-scanner-pallet-runtime-api"
-version = "2.0.0"
+version = "0.1.0"
 authors = ['Ayush Mishra <ayushmishra2005@gmail.com>']
 edition = "2018"
 license = "Unlicense"
