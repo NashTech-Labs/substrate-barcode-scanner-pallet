@@ -1,0 +1,15 @@
+[package]
+name = "substrate-barcode-scanner-pallet-runtime-api"
+version = "1.0.0"
+authors = ['Ayush Mishra <ayushmishra2005@gmail.com>']
+edition = "2018"
+license = "Unlicense"
+
+[dependencies]
+sp-api = { version = '2.0.0', default-features = false}
+
+[features]
+default = ["std"]
+std = [
+    "sp-api/std",
+    ]
