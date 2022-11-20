@@ -4,7 +4,7 @@ description = 'Runtime API for Substrate based 2D barcode scanner pallet'
 edition = '2018'
 license = "Apache-2.0"
 name = "substrate-barcode-scanner-pallet-runtime-api"
-version = '2.0.0'
+version = '0.7.0'
 readme = "README.md"
 repository = "https://github.com/knoldus/substrate-barcode-scanner-pallet"
 
